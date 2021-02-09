@@ -5,7 +5,9 @@ class HogsContainer extends Component {
     render(){
         return(
             <div>
-                {this.props.hogs.map(hog => <HogTile hog={hog} handleClickHog={this.props.handleClickHog} formatImage={this.props.formatImage}/>)}
+                {this.props.hogs.map(hog => <HogTile hog={hog}
+                                                     handleClickHog={this.props.handleClickHog}
+                                                     formatImage={this.props.formatImage}/>)}
             </div>
         )
     }

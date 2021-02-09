@@ -17,15 +17,18 @@ class App extends Component {
         switch (e.target.value) {
             case 'greased':
                 let filteredHogs = hogs.filter(hog => hog.greased == true)
+                console.log(filteredHogs)
                 this.setState({hogs: filteredHogs})
+                break
             case 'name':
                 let sortedNames = hogs.sort((a, b) => (a.name > b.name) ? 1 : -1)
                 this.setState({hogs: sortedNames})
+                break
             case 'weight':
                 let fatHogs = hogs.sort((a, b) => (a.weight < b.weight) ? 1 : -1)
                 this.setState({hogs: fatHogs})
+                break
             default:
-                this.setState({hogs: hogs})
         }
     }
 
@@ -47,8 +50,10 @@ class App extends Component {
                         <option value="weight">Weight</option>
                     </select>
                 </div>
-                {this.state.selectedHog ? <MainHog selectedHog={this.state.selectedHog}
-                                                   formatImage={this.formatImage}/> : null}
+                {this.state.selectedHog
+                    ? <MainHog selectedHog={this.state.selectedHog}
+                               formatImage={this.formatImage}/>
+                    : null}
                 <HogsContainer hogs={this.state.hogs}
                                handleClickHog={this.handleClickHog}
                                formatImage={this.formatImage}/>
